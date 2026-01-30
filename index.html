@@ -844,10 +844,6 @@
                 }
             };
 
-            const knownCards = cards.filter(c => c.known).length;
-            const a1Target = 500;
-            const progressPercent = Math.min((knownCards / a1Target) * 100, 100);
-
             // Welcome screen
             if (cards.length === 0 && !showThemes) {
                 return (
@@ -1023,30 +1019,6 @@
                             >
                                 {showManage ? 'Study Mode' : 'Manage Cards'}
                             </button>
-                        </div>
-
-                        {/* Progress Bar */}
-                        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                            <div className="flex items-center justify-between mb-2">
-                                <div className="flex items-center gap-2">
-                                    <TrendingUp className="text-blue-500" />
-                                    <h2 className="text-lg font-bold text-gray-800">A1 Progress</h2>
-                                </div>
-                                <span className="text-sm font-semibold text-gray-600">
-                                    {knownCards} / {a1Target}
-                                </span>
-                            </div>
-                            <div className="w-full bg-gray-200 rounded-full h-4 mb-2">
-                                <div
-                                    className="bg-gradient-to-r from-green-400 to-blue-500 h-4 rounded-full transition-all duration-500"
-                                    style={{ width: `${progressPercent}%` }}
-                                />
-                            </div>
-                            <p className="text-sm text-gray-600">
-                                {knownCards < a1Target
-                                    ? `${a1Target - knownCards} more to A1!`
-                                    : 'A1 level reached! 🎉'}
-                            </p>
                         </div>
 
                         {!showManage ? (
